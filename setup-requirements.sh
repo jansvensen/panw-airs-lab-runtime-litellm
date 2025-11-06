@@ -1,8 +1,6 @@
 ## Update packsges
 sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
 
-## Install n8n
-
 # Add Docker's official GPG key:
 sudo apt install ca-certificates curl -y
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -19,19 +17,14 @@ sudo apt update
 # Install the Docker packages.
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
-## Caddy installieren für automatische HTTPS-Zertifikate
-# Caddy übernimmt die Herausforderung von SSL-Zertifikaten automatisch (dank Let's Encrypt).
+## Install and configure nginx
 
-# Installiere Caddy:
-sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' \
-| sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+# Base install nginx
+sudo apt install nginx -y
 
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' \
-| sudo tee /etc/apt/sources.list.d/caddy-stable.list
+# Allow nginx through your firewall, if enabled
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTPS'
 
-sudo apt update
-sudo apt install caddy -y
-
-# Edit caddy file
-sudo nano /etc/caddy/Caddyfile
+# Install certbox for letsencrypt certificate setup
+sudo apt install certbot python3-certbot-nginx -y
