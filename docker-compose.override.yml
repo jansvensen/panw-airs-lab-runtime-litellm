@@ -1,11 +1,9 @@
 services:
- 
   api:
     volumes:
     - type: bind
       source: ./librechat.yaml
       target: /app/librechat.yaml
- 
   litellm:
     image: ghcr.io/berriai/litellm:main-latest
     volumes:
