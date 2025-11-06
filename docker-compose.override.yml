@@ -5,6 +5,7 @@ services:
       source: ./librechat.yaml
       target: /app/librechat.yaml
   litellm:
+    container_name: litellm
     image: ghcr.io/berriai/litellm:main-latest
     volumes:
         - ./litellm/litellm-config.yaml:/app/config.yaml
