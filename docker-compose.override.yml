@@ -16,6 +16,6 @@ services:
     ports:
         - "4000:8000"
     command: [ "--config", "/app/config.yaml", "--port", "8000", "--num_workers", "8" ]
-    For Google - see above about required auth "GOOGLE_APPLICATION_CREDENTIALS" envronment and volume mount
+    # For Google - see above about required auth "GOOGLE_APPLICATION_CREDENTIALS" envronment and volume mount
     environment:
         GOOGLE_APPLICATION_CREDENTIALS: /app/application_default_credentials.json
