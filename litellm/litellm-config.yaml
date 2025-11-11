@@ -2,7 +2,8 @@ model_list:
   - model_name:  grok-3-mini
     litellm_params:
       model: azure_ai/grok-3-mini
-      api_base: "${AZURE_BASE_URL}"
+      #api_base: "${AZURE_BASE_URL}"
+      api_base: "https://sjansen-openai.services.ai.azure.com/"
       api_key: "${AZURE_API_KEY}"
 #    guardrails:
 #      - guardrail_name: "panw-prisma-airs-guardrail"
