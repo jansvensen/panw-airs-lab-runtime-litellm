@@ -25,6 +25,7 @@ services:
       - AIRS_API_KEY=${AIRS_API_KEY}
       - AIRS_DEFAULT_PROFILE_NAME=${AIRS_DEFAULT_PROFILE_NAME}
       - AIRS_API_URL=${AIRS_API_URL}
+      - LITELLM_DEBUG=true
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
