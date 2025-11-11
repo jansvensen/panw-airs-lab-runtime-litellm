@@ -98,7 +98,7 @@ endpoints:
         default:
           - "DeepSeek-R1"
           - "gpt-4.1-mini"
-          - "gpt-4.0"
+          - "gpt-4o"
           - "gpt-4o-mini"
         fetch: false
       titleConvo: true
