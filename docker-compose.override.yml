@@ -10,20 +10,37 @@ services:
   # LiteLLM Proxy
   litellm:
     image: ghcr.io/berriai/litellm:main-latest
-    container_name: litellm-proxy
+    container_name: litellm
     restart: always
     ports:
       - "4000:4000"
     volumes:
       - ./litellm/litellm-config.yaml:/app/config.yaml
-    command: --config /app/config.yaml --port 4000 --num_workers 8
+    command: --config /app/config.yaml --port 4000
     environment:
       - LITELLM_MASTER_KEY=sk-1234
       - LITELLM_SALT_KEY=sk-salt-1234
+      - DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}"
+      - STORE_MODEL_IN_DB="True"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
       - librechat-network
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB="${POSTGRES_DB}"
+      - POSTGRES_USER="${POSTGRES_USER}"
+      - POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"
+    volumes:
+      - db-storage:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d ${POSTGRES_DB} -U ${POSTGRES_USER}"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
 
   mongodb:
     networks:
@@ -40,7 +57,7 @@ services:
   rag_api:
     networks:
       - librechat-network  
-          
+
 networks:
   librechat-network:
     driver: bridge
