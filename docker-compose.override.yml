@@ -22,3 +22,7 @@ services:
       - LITELLM_SALT_KEY=sk-salt-1234
     networks:
       - librechat-network
+
+networks:
+  librechat-network:
+    driver: bridge
