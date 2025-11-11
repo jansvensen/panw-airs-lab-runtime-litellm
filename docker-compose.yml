@@ -2,8 +2,7 @@
 # Refer to `docker-compose.override.yaml.example’ for some sample configurations.
 
 services:
-
-  librechat:
+  api:
     container_name: LibreChat
     ports:
       - "${PORT}:${PORT}"
@@ -28,7 +27,6 @@ services:
       - ./images:/app/client/public/images
       - ./uploads:/app/uploads
       - ./logs:/app/logs
-
   mongodb:
     container_name: chat-mongodb
     image: mongo
@@ -48,7 +46,6 @@ services:
       - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
     volumes:
       - ./meili_data_v1.12:/meili_data
-      
   vectordb:
     container_name: vectordb
     image: pgvector/pgvector:0.8.0-pg15-trixie
