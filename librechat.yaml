@@ -127,7 +127,6 @@ endpoints:
       summaryModel: "grok-3-mini"
       forcePrompt: false
       modelDisplayLabel: "grok-3-mini (via LiteLLM)"
-      iconURL: "https://raw.githubusercontent.com/ollama/ollama/main/docs/images/ollama.png"
       addParams:
         max_tokens: 4000
         temperature: 0.7
