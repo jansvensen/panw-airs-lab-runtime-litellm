@@ -4,6 +4,7 @@ model_list:
       model: azure_ai/grok-3-mini
       api_base: "${AZURE_BASE_URL}"
       api_key: "${AZURE_API_KEY}"
+      api_version: "2024-05-01-preview"
 #    guardrails:
 #      - guardrail_name: "panw-prisma-airs-guardrail"
 #        litellm_params:
