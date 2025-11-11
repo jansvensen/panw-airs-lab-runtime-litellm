@@ -89,15 +89,6 @@ actions:
 
 # Definition of custom endpoints
 endpoints:
-  azureOpenAI:
-    groups:
-    - group: "Azure"
-      apiKey: "${AZURE_API_KEY}"  # arbitrary env var name
-      baseURL: "${AZURE_BASE_URL}"
-      serverless: true
-      models:
-        # Must match the deployment name of the model
-        grok-3-mini: true
 
   custom:
     - name: "Grok-3-mini via LiteLLM"
