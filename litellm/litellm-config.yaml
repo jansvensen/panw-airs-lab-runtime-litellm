@@ -15,6 +15,7 @@ guardrails:
       profile_name: os.environ/AIRS_DEFAULT_PROFILE_NAME
       mask_request_content: true             # Mask sensitive data in prompts
       mask_response_content: true            # Mask sensitive data in responses
+      default_on: true # ENSURE THIS IS TRUE to apply to all requests
 
 # NOTE: It may be a good idea to comment out "success_callback", "cache", "cache_params" (both lines under) when you first start until this works!
 litellm_settings:
