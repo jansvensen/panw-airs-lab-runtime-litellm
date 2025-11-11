@@ -13,12 +13,26 @@ model_list:
           profile_name: "${AIRS_DEFAULT_PROFILE_NAME}"
           api_base: "${AIRS_API_URL}"
 
-# NOTE: It may be a good idea to comment out "success_callback", "cache", "cache_params" (both lines under) when you first start until this works!
+# General settings
 litellm_settings:
+  drop_params: true
+  set_verbose: true
   success_callback: ["langfuse"]
-  cache: True
-  cache_params:
-    type: "redis"
-    supported_call_types: ["acompletion", "completion", "embedding", "aembedding"]
-general_settings:
-  master_key: "Banane1234"
+  failure_callback: ["langfuse"]
+
+# Router settings
+router_settings:
+  routing_strategy: simple-shuffle
+  model_group_alias:
+    grok-3-mini: grok-3-mini
+  num_retries: 3
+  timeout: 300
+  redis_host: null
+  redis_password: null
+  redis_port: null
+  enable_pre_call_checks: true
+
+# Environment variables
+environment_variables:
+  LITELLM_LOG: INFO
+  STORE_MODEL_IN_DB: "True"
