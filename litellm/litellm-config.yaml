@@ -24,7 +24,7 @@ guardrails:
   - guardrail_name: "panw-prisma-airs"
     litellm_params:
       guardrail: panw_prisma_airs
-      mode: "post_call"  # Or "post_call"
+      mode: "pre_call"  # Or "post_call"
       api_key: os.environ/AIRS_API_KEY
       profile_name: os.environ/AIRS_DEFAULT_PROFILE_NAME
       mask_request_content: true             # Mask sensitive data in prompts
