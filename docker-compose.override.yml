@@ -4,6 +4,8 @@ services:
     - type: bind
       source: ./librechat.yaml
       target: /app/librechat.yaml
+    networks:
+      - librechat-network
 
   # LiteLLM Proxy
   litellm:
@@ -20,3 +22,25 @@ services:
       - LITELLM_SALT_KEY=sk-salt-1234
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    networks:
+      - librechat-network
+
+  mongodb:
+    networks:
+      - librechat-network
+
+  vectordb:
+    networks:
+      - librechat-network
+
+  meilisearch:
+    networks:
+      - librechat-network
+
+  rag_api:
+    networks:
+      - librechat-network  
+          
+networks:
+  librechat-network:
+    driver: bridge
