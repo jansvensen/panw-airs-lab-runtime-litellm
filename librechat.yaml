@@ -91,20 +91,20 @@ actions:
 endpoints:
 
   custom:
-    - name: "Grok-3-mini via LiteLLM"
+    - name: "DeepSeek-R1 via LiteLLM"
       apiKey: "sk-1234"
       baseURL: "http://litellm:4000/v1"
       models:
         default:
-          - "grok-3-mini"
+          - "DeepSeek-R1"
         fetch: false
       titleConvo: true
       titleMethod: "completion"
-      titleModel: "grok-3-mini"
+      titleModel: "DeepSeek-R1"
       summarize: false
-      summaryModel: "grok-3-mini"
+      summaryModel: "DeepSeek-R1"
       forcePrompt: false
-      modelDisplayLabel: "grok-3-mini (via LiteLLM)"
+      modelDisplayLabel: "DeepSeek-R1 (via LiteLLM)"
       addParams:
         max_tokens: 4000
         temperature: 0.7
