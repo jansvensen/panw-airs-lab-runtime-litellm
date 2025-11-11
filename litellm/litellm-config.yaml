@@ -17,12 +17,6 @@ guardrails:
       mask_response_content: true            # Mask sensitive data in responses
       default_on: true # ENSURE THIS IS TRUE to apply to all requests
 
-# NOTE: It may be a good idea to comment out "success_callback", "cache", "cache_params" (both lines under) when you first start until this works!
 litellm_settings:
-#  success_callback: ["langfuse"]
-#  cache: True
-#  cache_params:
-#    type: "redis"
-#    supported_call_types: ["acompletion", "completion", "embedding", "aembedding"]
 general_settings:
   master_key: sk-1234
