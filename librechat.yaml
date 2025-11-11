@@ -104,7 +104,7 @@ endpoints:
       - name: "Lite LLM"
         # A place holder - otherwise it becomes the default (OpenAI) key
         # Provide the key instead in each "model" block within "litellm/litellm-config.yaml"
-        apiKey: "${LITELLM_API_KEY}"
+        apiKey: "Banane1234"
         # See the required changes above in "Start LiteLLM Proxy Server" step.
         baseURL: "http://host.docker.internal:4000"
         # A "default" model to start new users with. The "fetch" will pull the rest of the available models from LiteLLM
