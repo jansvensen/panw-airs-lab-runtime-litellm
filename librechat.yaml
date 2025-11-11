@@ -91,7 +91,7 @@ actions:
 endpoints:
 
   custom:
-    - name: "DeepSeek-R1 via LiteLLM"
+    - name: "LiteLLM"
       apiKey: "sk-1234"
       baseURL: "http://litellm:4000/v1"
       models:
@@ -104,7 +104,7 @@ endpoints:
       summarize: false
       summaryModel: "DeepSeek-R1"
       forcePrompt: false
-      modelDisplayLabel: "DeepSeek-R1 (via LiteLLM)"
+      modelDisplayLabel: "LiteLLM"
       addParams:
         max_tokens: 4000
         temperature: 0.7
