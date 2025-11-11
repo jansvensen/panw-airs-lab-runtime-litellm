@@ -134,6 +134,7 @@ You should now be able to access your librechat gui at https://your-host.your.do
 ## Troubleshooting
 In case you want to test LiteLLM without LibreChat, you can curl into it directly from your docker host. Here are two examples that will test your integration. between LiteLLM, AIRS and the backend.
 ```bash
+# This example uses an explicit guardrail configuration.
 curl -i http://0.0.0.0:4000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer sk-1234" \
@@ -146,6 +147,7 @@ curl -i http://0.0.0.0:4000/v1/chat/completions \
   }'
 ```
 ```bash
+# This example uses an implicit guardrail configuration. It requires "default_on: true" to be set in your litellm guardrail conf.
   curl -i http://0.0.0.0:4000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer sk-1234" \
