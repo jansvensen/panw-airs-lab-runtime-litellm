@@ -20,27 +20,10 @@ services:
     environment:
       - LITELLM_MASTER_KEY=sk-1234
       - LITELLM_SALT_KEY=sk-salt-1234
-      - DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}"
-      - STORE_MODEL_IN_DB="True"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
       - librechat-network
-
-  postgres:
-    image: postgres
-    restart: always
-    environment:
-      - POSTGRES_DB="${POSTGRES_DB}"
-      - POSTGRES_USER="${POSTGRES_USER}"
-      - POSTGRES_PASSWORD="${POSTGRES_PASSWORD}"
-    volumes:
-      - db-storage:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -d ${POSTGRES_DB} -U ${POSTGRES_USER}"]
-      interval: 1s
-      timeout: 5s
-      retries: 10
 
   mongodb:
     networks:
