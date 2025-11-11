@@ -35,12 +35,5 @@ guardrails:
       default_on: true # ENSURE THIS IS TRUE to apply to all requests
 
 litellm_settings:
-  drop_params: true
-  success_callback: []
-  disable_error_logs: true
-  json_logs: true
-  router_settings:
-    routing_strategy: simple-shuffle
-
 general_settings:
   master_key: sk-1234 
