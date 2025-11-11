@@ -5,14 +5,14 @@ model_list:
       api_base: os.environ/AZURE_BASE_URL
       api_key: os.environ/AZURE_API_KEY
       drop_params: true
-#    guardrails:
-#      - guardrail_name: "panw-prisma-airs-guardrail"
-#        litellm_params:
-#          guardrail: panw_prisma_airs
-#          mode: "pre_call"  # Or "post_call"
-#          api_key: "${AIRS_API_KEY}"
-#          profile_name: "${AIRS_DEFAULT_PROFILE_NAME}"
-#          api_base: "${AIRS_API_URL}"
+    guardrails:
+      - guardrail_name: "panw-prisma-airs-guardrail"
+        litellm_params:
+          guardrail: panw_prisma_airs
+          mode: "pre_call"  # Or "post_call"
+          api_key: os.environ/AIRS_API_KEY
+          profile_name: os.environ/AIRS_DEFAULT_PROFILE_NAME
+          api_base: os.environ/AIRS_API_URL
 
 # NOTE: It may be a good idea to comment out "success_callback", "cache", "cache_params" (both lines under) when you first start until this works!
 litellm_settings:
