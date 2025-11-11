@@ -13,10 +13,9 @@ guardrails:
       mode: "pre_call"  # Or "post_call"
       api_key: os.environ/AIRS_API_KEY
       profile_name: os.environ/AIRS_DEFAULT_PROFILE_NAME
-      api_base: os.environ/AIRS_API_URL
       mask_request_content: true             # Mask sensitive data in prompts
       mask_response_content: true            # Mask sensitive data in responses
-      
+
 # NOTE: It may be a good idea to comment out "success_callback", "cache", "cache_params" (both lines under) when you first start until this works!
 litellm_settings:
 #  success_callback: ["langfuse"]
