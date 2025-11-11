@@ -22,6 +22,9 @@ services:
       - LITELLM_SALT_KEY=sk-salt-1234
       - AZURE_API_KEY=${AZURE_API_KEY}
       - AZURE_BASE_URL=${AZURE_BASE_URL}
+      - AIRS_API_KEY=${AIRS_API_KEY}
+      - AIRS_DEFAULT_PROFILE_NAME=${AIRS_DEFAULT_PROFILE_NAME}
+      - AIRS_API_URL=${AIRS_API_URL}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     networks:
