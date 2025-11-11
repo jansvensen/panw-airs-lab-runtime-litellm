@@ -21,4 +21,4 @@ litellm_settings:
     type: "redis"
     supported_call_types: ["acompletion", "completion", "embedding", "aembedding"]
 general_settings:
-  master_key: sk_live_SetToRandomValue
+  master_key: "${LITELLM_API_KEY}"
