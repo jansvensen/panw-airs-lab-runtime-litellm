@@ -4,35 +4,21 @@ model_list:
       model: azure/grok-3-mini
       api_base: "${AZURE_BASE_URL}"
       api_key: "${AZURE_API_KEY}"
-#    guardrails:
-#      - guardrail_name: "panw-prisma-airs-guardrail"
-#        litellm_params:
-#          guardrail: panw_prisma_airs
-#          mode: "pre_call"  # Or "post_call"
-#          api_key: "${AIRS_API_KEY}"
-#          profile_name: "${AIRS_DEFAULT_PROFILE_NAME}"
-#          api_base: "${AIRS_API_URL}"
+    guardrails:
+      - guardrail_name: "panw-prisma-airs-guardrail"
+        litellm_params:
+          guardrail: panw_prisma_airs
+          mode: "pre_call"  # Or "post_call"
+          api_key: "${AIRS_API_KEY}"
+          profile_name: "${AIRS_DEFAULT_PROFILE_NAME}"
+          api_base: "${AIRS_API_URL}"
 
-# General settings
+# NOTE: It may be a good idea to comment out "success_callback", "cache", "cache_params" (both lines under) when you first start until this works!
 litellm_settings:
-  drop_params: true
-  set_verbose: true
   success_callback: ["langfuse"]
-  failure_callback: ["langfuse"]
-
-# Router settings
-router_settings:
-  routing_strategy: simple-shuffle
-  model_group_alias:
-    grok-3-mini: grok-3-mini
-  num_retries: 3
-  timeout: 300
-  redis_host: null
-  redis_password: null
-  redis_port: null
-  enable_pre_call_checks: true
-
-# Environment variables
-environment_variables:
-  LITELLM_LOG: INFO
-  STORE_MODEL_IN_DB: "True"
+  cache: True
+  cache_params:
+    type: "redis"
+    supported_call_types: ["acompletion", "completion", "embedding", "aembedding"]
+general_settings:
+  master_key: sk-1234
