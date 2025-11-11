@@ -94,7 +94,6 @@ endpoints:
     - group: "Azure"
       apiKey: "${AZURE_API_KEY}"  # arbitrary env var name
       baseURL: "${AZURE_BASE_URL}"
-      version: "2024-05-01-preview" # Optional: specify API version
       serverless: true
       models:
         # Must match the deployment name of the model
